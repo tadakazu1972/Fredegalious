@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements android.view.View
 
     private void initMyChara(){
         //初期化
-        mMyChara = new MyChara();
+        mMyChara = new MyChara(this);
     }
 
 

@@ -45,6 +45,9 @@ public class MainSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         scaleY = _deviceHeight / 320.0f;
         scale = scaleX > scaleY ? scaleY : scaleX;
 
+        //ゲームの各種ステータスをロード
+        loadData();
+
         //フォーカスをあてる
         setFocusable(true);
     }
@@ -111,11 +114,11 @@ public class MainSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     }
 
     private void drawMap(Canvas canvas){
-        int mapIndex=1;
-        int mapId=0;
+        int mapIndex = ac.mMyChara.currentMap;
+        int mapId = 0;
         for (int y=0; y<10; y++){
             for (int x=0; x<10; x++){
-                mapId = ac.mMap[mapIndex].mapData[y][x];
+                mapId = ac.mMap[mapIndex].data[y][x];
                 canvas.drawBitmap(sMap[mapId], x*32.0f, y*32.0f, null);
             }
         }
@@ -138,6 +141,10 @@ public class MainSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         sMap = new Bitmap[2];
         sMap[0] = BitmapFactory.decodeResource(res, R.drawable.greenfield);
         sMap[1] = BitmapFactory.decodeResource(res, R.drawable.tree);
+    }
+
+    //ゲームの各種ステータスをロード
+    private void loadData(){
     }
 
 }

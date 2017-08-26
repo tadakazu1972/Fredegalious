@@ -16,12 +16,12 @@ import static java.lang.Integer.parseInt;
 
 public class Map {
     protected int index;
-    protected int[][] mapData;
+    protected int[][] data;
     protected int[] next; //時計回りに上右下左でつながったマップのindex保存用
 
     public Map(int _index){
         index = _index;
-        mapData = new int[10][10];
+        data = new int[10][10];
         next = new int[4];
     }
 
@@ -40,7 +40,7 @@ public class Map {
                     for (int x=0;x<10;x++){
                         //読み込んだデータをある程度のレンジに変換して格納
                         int _data = parseInt(csv[x]);
-                        mapData[y][x] = _data;
+                        data[y][x] = _data;
                     }
                     y++; if (y>10){ y=0;}
                 }
